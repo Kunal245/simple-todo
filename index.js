@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const { createTodo } = require("./types");
-const { todo } = require("node:test");
+const { todo } = require("./db/db");
 app.use(express.json());
 
 app.post("/todo", async function(req, res){
