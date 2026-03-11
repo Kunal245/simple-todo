@@ -1,4 +1,4 @@
-const zod = require(zod);
+const zod = require("zod");
 //zod is a filter which checks the input are valid or not
 
 const createTodo = zod.object({

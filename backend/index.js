@@ -1,3 +1,6 @@
+const dns = require('node:dns');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 const express = require("express");
 const app = express();
 const { createTodo, updateTodo } = require("./types");
@@ -6,8 +9,9 @@ app.use(express.json());
 
 app.post("/todo", async function(req, res){
     const createPayload = req.body
+    console.log(createPayload);
     const parsedPayload = createTodo.safeParse(createPayload);
-    if (!parsedPayload.sucess){
+    if (!parsedPayload.success){
         res.status(411).json({
             msg: "You send wrong inputs"
         })
